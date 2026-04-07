@@ -68,11 +68,11 @@ EDROOMTimingSAP
 [Version Modulo]
 1
 pus_services_iface
-
+ 
 v1
-
+ 
 1
-0
+1
 [Eventos]
 1
 [Event]
@@ -187,9 +187,9 @@ GFlightPlanDone()
 Ready
 DSubEst
 FToReady();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -210,9 +210,9 @@ true
 Ready
 DSubEst
 ;
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -227,9 +227,9 @@ GExecFlightPlan()
 FlightPlan
 DSubEst
 FInitFlightPlan();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -266,7 +266,7 @@ true
 0
 127 100 218 132 0
 [FinGraficoTransicion]
-
+ 
 SelfTest
 OSubEst
 Ready
@@ -355,46 +355,9 @@ FDroneSelfTest()
 0
 0
 1
-
+ 
 1
 pus_service129_drone_selftest();
-MsgDataHandler
-FGetConfig()
-0
-0
-0
-0
-1
-
-6
-	
-		// Data access
-	
-	// ... =varSDroneSetUp;
-
-	pus_service129_setup(varSDroneSetUp);
-[ServiceRequest]
-Msg->data
-DroneMngCtrl
-SDroneSetUp
-CDDroneConfig
-EDROOMprioVeryHigh
-ReplyMsg
-FReplyDroneReady()
-0
-0
-0
-0
-1
-
-1
-pus_service129_drone_ready();
-[ServiceRequest]
-Msg->reply
-DroneMngCtrl
-SDroneReady
-NULL
-EDROOMprioVeryHigh
 MsgDataHandler
 FExecDroneTC()
 0
@@ -402,13 +365,13 @@ FExecDroneTC()
 0
 0
 1
-
+ 
 6
 	
 		// Data access
 	
 	// ... =varSDroneTC;
-
+ 
 	varSDroneTC.ExecDroneTC();
 [ServiceRequest]
 Msg->data
@@ -416,26 +379,37 @@ DroneMngCtrl
 SDroneTC
 CDTCHandler
 EDROOMprioVeryHigh
-Guard
-GExecFlightPlan()
+BasicAction
+FFlightCtrlAlgorithm()
 0
 0
 0
 0
 1
-
+ 
 1
-return pus_service129_flight_plan_ready();
-Guard
-GFlightPlanDone()
+pus_service129_flight_ctrl_algorithm();
+MsgDataHandler
+FGetConfig()
 0
 0
 0
 0
 1
-
-1
-return pus_service129_flight_plan_done();
+ 
+6
+	
+		// Data access
+	
+	// ... =varSDroneSetUp;
+ 
+	pus_service129_setup(varSDroneSetUp);
+[ServiceRequest]
+Msg->data
+DroneMngCtrl
+SDroneSetUp
+CDDroneConfig
+EDROOMprioVeryHigh
 Inform
 FInitFlightPlan()
 0
@@ -443,9 +417,9 @@ FInitFlightPlan()
 0
 0
 1
-
+ 
 5
-
+ 
 time.GetTime(); // Get current monotonic time
 time+=Pr_Time(0,100); // Add X sec + Y microsec
 VNextCtrl=time;
@@ -456,16 +430,6 @@ DroneTimer
 EDROOMSignalTimeout
 NULL
 EDROOMprioVeryHigh
-BasicAction
-FToReady()
-0
-0
-0
-0
-1
-
-1
-pus_service129_drone_ready();
 Inform
 FProgNextCtrl()
 0
@@ -473,28 +437,64 @@ FProgNextCtrl()
 0
 0
 1
-
+ 
 4
 	 
-VNextDescentCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
+VNextCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
 time=VNextDescentC
-
+ 
 [ServiceRequest]
 InformAt
 DroneTimer
 EDROOMSignalTimeout
+
+EDROOMprioVeryHigh
+ReplyMsg
+FReplyDroneReady()
+0
+0
+0
+0
+1
+ 
+1
+pus_service129_drone_ready();
+[ServiceRequest]
+Msg->reply
+DroneMngCtrl
+SDroneReady
 NULL
 EDROOMprioVeryHigh
 BasicAction
-FFlightCtrlAlgorithm()
+FToReady()
 0
 0
 0
 0
 1
-
+ 
 1
-pus_service129_flight_ctrl_algorithm();
+pus_service129_drone_ready();
+Guard
+GExecFlightPlan()
+0
+0
+0
+0
+1
+ 
+1
+return pus_service129_flight_plan_ready();
+Guard
+GFlightPlanDone()
+0
+0
+0
+0
+1
+ 
+1
+return pus_service129_flight_plan_done();
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]
