@@ -1,0 +1,58 @@
+import "../../../dataclasses/CDDroneConfig/models/CDDroneConfig.ed_dclass";
+import "../../../dataclasses/CDTCHandler/models/CDTCHandler.ed_dclass";
+
+
+/*
+ * EDROOM Protocol Model.
+*/ 
+
+
+protocol CPDroneMngCtrl{
+
+	uri :=es.uah.aut.srg.edroom.mclev.cmp_iface.CPDroneMngCtrl;
+	version :=v1;
+
+
+	/*
+	 * Input messages.
+	*/ 
+
+	input messages
+
+	{
+
+
+		/*
+		 * Asynchronous messages.
+		*/ 
+
+		send SDroneTC(CDTCHandler(v1));
+
+		/*
+		 * Synchronous Invoke messages.
+		*/ 
+
+		invoke SDroneSetUp(CDDroneConfig(v1)) replies SDroneReady;
+
+	};
+
+
+
+	/*
+	 * Output messages.
+	*/ 
+
+	output messages
+
+	{
+
+
+		/*
+		 * Synchronous reply messages.
+		*/ 
+
+		reply SDroneReady();
+
+	};
+
+};

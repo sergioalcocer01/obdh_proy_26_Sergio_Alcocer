@@ -1,0 +1,52 @@
+import "../../../dataclasses/Pr_Time/models/Pr_Time.ed_dclass";
+import "../../../protocols/EDROOMTimingSAP/models/EDROOMTimingSAP.ed_prot";
+import "../../../protocols/EDROOMServiceLibrary/models/EDROOMServiceLibrary.ed_prot";
+import "../../../components/ccdronemng/models/CCDroneMng.ed_cmp";
+import "../../../sais/emu_hw_timecode_drv_v1/models/emu_hw_timecode_drv_v1.ed_sai";
+
+
+
+/**
+ * \class   UAHMarsDrone
+ *
+ */
+
+
+no_pattern component UAHMarsDrone{
+
+	uri := es.uah.aut.srg.edroom.mclev.cmp.UAHMarsDrone;
+	version := v1;
+	stack_size := 1024;
+	def_max_nb_messages := 10;
+	requires := emu_hw_timecode_drv(v1);
+
+
+
+
+	structure {
+
+		ports {
+
+
+			system port EDROOMsl
+			{
+				id:= 0;
+				protocol:= EDROOMServiceLibrary(v1);
+			};
+			timing port Timer {
+				id := 1;
+				protocol := EDROOMTimingSAP(v1);
+
+			};
+
+
+
+		};
+
+
+		instances {
+
+
+			instance DroneMng
+			{
+				class := CCDroneMng(v1);
