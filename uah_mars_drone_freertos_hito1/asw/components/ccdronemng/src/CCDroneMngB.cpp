@@ -229,8 +229,8 @@ void CCDroneMng::EDROOM_SUB_Top_0::EDROOMBehaviour()
 				//Next State is SelfTest
 				edroomNextState = SelfTest;
 				break;
-			//Next Transition is 
-			case ():
+			//Next Transition is Config
+			case (Config):
 				//Msg->Data Handling 
 				FGetConfig();
 				//Reply Synchronous Message 
@@ -403,8 +403,8 @@ TEDROOMTransId CCDroneMng::EDROOM_SUB_Top_0::EDROOMSelfTestArrival()
 				 if (*Msg->GetPInterface() == DroneMngCtrl)
 				{
 
-					//Next transition is  
-					edroomCurrentTrans.localId= ;
+					//Next transition is  Config
+					edroomCurrentTrans.localId= Config;
 					edroomCurrentTrans.distanceToContext = 0;
 					edroomValidMsg=true;
 				 }

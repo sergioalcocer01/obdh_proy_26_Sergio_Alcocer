@@ -266,7 +266,7 @@ true
 0
 127 100 218 132 0
 [FinGraficoTransicion]
-
+Config
 SelfTest
 OSubEst
 Ready
@@ -276,8 +276,8 @@ DSubEst
 DroneMngCtrl
 SDroneSetUp
 true
-
-
+ 
+ 
  
 FGetConfig();
 ;
