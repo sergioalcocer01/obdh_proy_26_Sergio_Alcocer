@@ -135,7 +135,7 @@ void	CCDroneMng::EDROOM_CTX_Top_0::FProgNextCtrl()
   Pr_Time time;
 	 
 VNextCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
-time=VNextCtrl
+time=VNextCtrl;
  
    //Program absolute timer 
    DroneTimer.InformAt( time ); 
@@ -229,8 +229,8 @@ void CCDroneMng::EDROOM_SUB_Top_0::EDROOMBehaviour()
 				//Next State is SelfTest
 				edroomNextState = SelfTest;
 				break;
-			//Next Transition is  
-			case ( ):
+			//Next Transition is 
+			case ():
 				//Msg->Data Handling 
 				FGetConfig();
 				//Reply Synchronous Message 
@@ -403,8 +403,8 @@ TEDROOMTransId CCDroneMng::EDROOM_SUB_Top_0::EDROOMSelfTestArrival()
 				 if (*Msg->GetPInterface() == DroneMngCtrl)
 				{
 
-					//Next transition is   
-					edroomCurrentTrans.localId=  ;
+					//Next transition is  
+					edroomCurrentTrans.localId= ;
 					edroomCurrentTrans.distanceToContext = 0;
 					edroomValidMsg=true;
 				 }

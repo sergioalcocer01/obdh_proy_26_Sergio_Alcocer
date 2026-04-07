@@ -227,9 +227,9 @@ GExecFlightPlan()
 FlightPlan
 DSubEst
 FInitFlightPlan();
+
  
- 
- 
+
 ;
 ;
 ;
@@ -266,7 +266,7 @@ true
 0
 127 100 218 132 0
 [FinGraficoTransicion]
- 
+
 SelfTest
 OSubEst
 Ready
@@ -276,8 +276,8 @@ DSubEst
 DroneMngCtrl
 SDroneSetUp
 true
- 
- 
+
+
  
 FGetConfig();
 ;
@@ -441,7 +441,7 @@ FProgNextCtrl()
 4
 	 
 VNextCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
-time=VNextCtrl
+time=VNextCtrl;
  
 [ServiceRequest]
 InformAt
