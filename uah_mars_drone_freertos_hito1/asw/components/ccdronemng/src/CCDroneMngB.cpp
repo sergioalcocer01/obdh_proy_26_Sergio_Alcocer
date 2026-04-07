@@ -134,7 +134,7 @@ void	CCDroneMng::EDROOM_CTX_Top_0::FProgNextCtrl()
    //Define absolute time
   Pr_Time time;
 	 
-VNextDescentCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
+VNextCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
 time=VNextDescentC
  
    //Program absolute timer 
