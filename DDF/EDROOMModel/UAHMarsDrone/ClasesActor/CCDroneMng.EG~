@@ -81,7 +81,7 @@ I
 SelfTest
 ;
 ;
-;
+FDroneSelfTest();
 ;
 ;
 1
@@ -115,7 +115,7 @@ FlightPlan
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-255 471 259 60
+219 462 259 60
 [FinObjetoGrafico]
 [PuntosEleccion]
 2
@@ -133,7 +133,7 @@ ExecTC
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-248 352 35 35
+246 352 35 35
 [FinObjetoGrafico]
 CtrlAlgorithm
 0
@@ -156,7 +156,7 @@ DSubEst
 [GraficoRama]
 [Version GraficoRama]
 0
-450 268 498 471 0
+450 268 462 462 0
 [FinGraficoRama]
 PlanDone
 true
@@ -196,7 +196,7 @@ DSubEst
 [GraficoRama]
 [Version GraficoRama]
 0
-248 369 192 301 3
+246 369 192 301 3
 [FinGraficoRama]
 InitFlightPlan
 true
@@ -213,7 +213,7 @@ DSubEst
 [GraficoRama]
 [Version GraficoRama]
 0
-272 383 301 471 0
+270 383 265 462 2
 [FinGraficoRama]
 [Transiciones]
 4
@@ -249,16 +249,16 @@ Ready
 DSubEst
 ;
 [Trigger]
- 
- 
+DroneMngCtrl
+SDroneSetUp
 true
  
  
  
+FGetConfig();
 ;
-;
-;
-0
+FReplyDroneReady();
+1
 ;
 [GraficoTransicion]
 [Version GraficoTransicion]
@@ -272,13 +272,13 @@ ExecTC
 DPEleccion
 ;
 [Trigger]
- 
- 
+DroneMngCtrl
+SDroneTC
 true
  
  
  
-;
+FExecDroneTC();
 ;
 ;
 0
@@ -286,7 +286,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-237 301 265 352 0
+237 301 263 352 0
 [FinGraficoTransicion]
 CtrlAlgorithm
 FlightPlan
@@ -309,14 +309,82 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-392 471 435 279 1
+356 462 435 279 1
 [FinGraficoTransicion]
 [VariablesConstantes]
 0
 [Metodos]
-0
+4
 [Version Metodos]
 21
+BasicAction
+FDroneSelfTest()
+0
+0
+0
+0
+1
+
+1
+pus_service129_drone_selftest();
+MsgDataHandler
+FGetConfig()
+0
+0
+0
+0
+1
+
+6
+	
+		// Data access
+	
+	// ... =varSDroneSetUp;
+
+	pus_service129_setup(varSDroneSetUp);
+[ServiceRequest]
+Msg->data
+DroneMngCtrl
+SDroneSetUp
+CDDroneConfig
+EDROOMprioVeryHigh
+ReplyMsg
+FReplyDroneReady()
+0
+0
+0
+0
+1
+
+1
+pus_service129_drone_ready();
+[ServiceRequest]
+Msg->reply
+DroneMngCtrl
+SDroneReady
+NULL
+EDROOMprioVeryHigh
+MsgDataHandler
+FExecDroneTC()
+0
+0
+0
+0
+1
+
+6
+	
+		// Data access
+	
+	// ... =varSDroneTC;
+
+	varSDroneTC.ExecDroneTC();
+[ServiceRequest]
+Msg->data
+DroneMngCtrl
+SDroneTC
+CDTCHandler
+EDROOMprioVeryHigh
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]
