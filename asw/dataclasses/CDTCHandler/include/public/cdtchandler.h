@@ -41,17 +41,21 @@ public:
 	//!Set Execution Control 
 	CDTCExecCtrl GetExecCtrl();
 
+
 	//!Exec the prio telecommands
 	void ExecPrioTC();
 
 	//!Exec the reboot telecommands
 	void ExecRebootTC();
 
-	//!Exec the reboot telecommands
+	//!Exec hk fdir telecommands
 	void ExecHK_FDIRTC();
 
-	//!Exec the reboot telecommands
+	//!Exec bkg telecommands
 	void ExecBKGTC();
+
+	//!Exec drone telecommands
+	void ExecDroneTC();
 
 
 };

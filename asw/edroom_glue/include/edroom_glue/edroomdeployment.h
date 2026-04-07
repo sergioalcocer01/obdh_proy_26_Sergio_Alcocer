@@ -12,10 +12,7 @@
 //******************************************************************************
 // include deployment edroom components
  
-#include <public/uah_asw_iface_v1.h>
-#include <public/cctcmanager_iface_v1.h>
-#include <public/cchk_fdirmng_iface_v1.h>
-#include <public/ccbkgtcexec_iface_v1.h>
+#include <public/uahmarsdrone_iface_v1.h>
 // ***********************************************************************
 // class CEDROOMSystemMemory
 // ***********************************************************************
@@ -28,30 +25,9 @@ class CEDROOMSystemMemory{
 	CEDROOMQueue::CQueueNode	comp1QueueNodes[13];
 	bool	comp1QueueNodesMarks[13];
  
-	//!Messages Memory of component comp2
-	CEDROOMMessage	comp2Messages[10];
-	bool	comp2MessagesMarks[10];
-	CEDROOMQueue::CQueueNode	comp2QueueNodes[10];
-	bool	comp2QueueNodesMarks[10];
- 
-	//!Messages Memory of component comp3
-	CEDROOMMessage	comp3Messages[10];
-	bool	comp3MessagesMarks[10];
-	CEDROOMQueue::CQueueNode	comp3QueueNodes[13];
-	bool	comp3QueueNodesMarks[13];
- 
-	//!Messages Memory of component comp4
-	CEDROOMMessage	comp4Messages[10];
-	bool	comp4MessagesMarks[10];
-	CEDROOMQueue::CQueueNode	comp4QueueNodes[10];
-	bool	comp4QueueNodesMarks[10];
- 
 	public:
  
-	UAH_ASW::CEDROOMMemory comp1Memory;
-	CCTCManager::CEDROOMMemory comp2Memory;
-	CCHK_FDIRMng::CEDROOMMemory comp3Memory;
-	CCBKGTCExec::CEDROOMMemory comp4Memory;
+	UAHMarsDrone::CEDROOMMemory comp1Memory;
  
 //!Set Memory
 	void SetMemory();
@@ -67,31 +43,15 @@ class CEDROOMSystemCommSAP{
  
 //!Conections
  
-	CEDROOMLocalConnection connections[2];
+	CEDROOMLocalConnection connections[0];
  
-	UAH_ASW   * mp_comp1;
-	CCTCManager   * mp_comp2;
-	CCHK_FDIRMng   * mp_comp3;
-	CCBKGTCExec   * mp_comp4;
+	UAHMarsDrone   * mp_comp1;
  
  
 //!Set Components
  
-	void SetComponents(UAH_ASW   *p_comp1,
-							CCTCManager   *p_comp2,
-							CCHK_FDIRMng   *p_comp3,
-							CCBKGTCExec   *p_comp4);
+	void SetComponents(UAHMarsDrone   *p_comp1);
  
- 
-//Signal Conversion
- 
-	static TEDROOMSignal C2TCManager_PBKGExecCtrl__C4BKGTCExec_PBKGExecCtrl(TEDROOMSignal signal);
-	static TEDROOMSignal C4BKGTCExec_PBKGExecCtrl__C2TCManager_PBKGExecCtrl(TEDROOMSignal signal);
- 
-//Signal Conversion
- 
-	static TEDROOMSignal C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl(TEDROOMSignal signal);
-	static TEDROOMSignal C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl(TEDROOMSignal signal);
  
  
 //!Register Interfaces
@@ -122,20 +82,14 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
 	CEDROOMSystemMemory   systemMemory;
 	CEDROOMSystemCommSAP  systemCommSAP;
  
-	UAH_ASW   * mp_comp1;
-	CCTCManager   * mp_comp2;
-	CCHK_FDIRMng   * mp_comp3;
-	CCBKGTCExec   * mp_comp4;
+	UAHMarsDrone   * mp_comp1;
  
 	public:
  
 	CEDROOMSystemDeployment();
  
 //!Deployment Configuration
-	void Config(UAH_ASW   *p_comp1,
-					CCTCManager   *p_comp2,
-					CCHK_FDIRMng   *p_comp3,
-					CCBKGTCExec   *p_comp4);
+	void Config(UAHMarsDrone   *p_comp1);
  
 //!Deployment Start
 	void Start();
@@ -144,10 +98,7 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
 	void StartComponents();
 //!Config Components
  
-	UAH_ASW::CEDROOMMemory 		* GetComp1Memory(){return &systemMemory.comp1Memory;}
-	CCTCManager::CEDROOMMemory 		* GetComp2Memory(){return &systemMemory.comp2Memory;}
-	CCHK_FDIRMng::CEDROOMMemory 		* GetComp3Memory(){return &systemMemory.comp3Memory;}
-	CCBKGTCExec::CEDROOMMemory 		* GetComp4Memory(){return &systemMemory.comp4Memory;}
+	UAHMarsDrone::CEDROOMMemory 		* GetComp1Memory(){return &systemMemory.comp1Memory;}
  
 };
 #endif

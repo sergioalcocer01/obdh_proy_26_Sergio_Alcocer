@@ -100,6 +100,9 @@ error_code_t pus_service1_tx_TM_1_3(tc_handler_t *ptc_handler);
 #define TM_1_4_TC_19_X_EV_ACTION_NOT_DEFINED  	20
 #define TM_1_4_TC_20_X_PID_READ_ONLY_VIA_TC_20 	21
 #define TM_1_4_TC_20_X_INVALID_PID 				22
+#define TM_1_4_TC_129_1_INVALID_FLIGHT_PLAN		23
+#define TM_1_4_TC_129_2_INVALID_KP_KI_KD_CONFIG	24
+
 #define TM_1_4_TC_X_Y_NO_EXEC_CODE 				0xFF
 
 
@@ -285,6 +288,22 @@ error_code_t pus_service1_tx_TM_1_4_PID_read_only_via_TC_20_X(tc_handler_t *ptc_
 		uint16_t PID);
 
 
+/**
+ * \brief TX a TM[1,4] invalid plan in C 129_1
+ * \param ptc_handler pointer to the tc handler
+ * \return 0 if no error
+ */
+error_code_t pus_service1_tx_TM_1_4_TC_129_1_INVALID_FLIGHT_PLAN(tc_handler_t *ptc_handler);
+
+/**
+ * \brief TX a TM[1,4] invalid KpKiKd C 129_1
+ * \param ptc_handler pointer to the tc handler
+ * \return 0 if no error
+ */
+error_code_t pus_service1_tx_TM_1_4_TC_129_2_INVALID_KP_KI_KD(tc_handler_t *ptc_handler);
+
+
+
 
 /**
  * \brief TX a TM[1,4] The TC has not assigned its execution code
@@ -292,6 +311,8 @@ error_code_t pus_service1_tx_TM_1_4_PID_read_only_via_TC_20_X(tc_handler_t *ptc_
  * \return 0 if no error
  */
 error_code_t pus_service1_tx_TM_1_4_TC_X_Y_NO_EXEC_CODE(tc_handler_t *ptc_handler);
+
+
 
 
 /**

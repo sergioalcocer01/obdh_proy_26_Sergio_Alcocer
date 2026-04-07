@@ -181,6 +181,7 @@ uint32_t sys_data_pool_get_uint32_param(uint16_t valid_param_id) {
 	return param_value;
 }
 
+
 error_code_t sys_data_pool_get_param_value(uint16_t param_id,
 		data_pool_item_t *p_valid_item) {
 	error_code_t error;

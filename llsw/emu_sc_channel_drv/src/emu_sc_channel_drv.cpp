@@ -27,11 +27,19 @@
 
 
 #include <public/sc_channel_drv_v1.h>
+
+#ifdef GSS_EMULATION
 #include "public/emu_gss_v1.h"
+#endif
+
 #include "public/tmtc_dyn_mem.h"
 #include "public/tc_queue_drv.h"
 #include "public/tc_rate_ctrl.h"
+
+#ifdef GSS_EMULATION
 #include "public/cctcmanager_iface_v1.h"
+#endif
+
 #include "public/edroombp.h"
 
 //RX Emu Channel Mutex
@@ -86,19 +94,22 @@ void SC_Channel_GetNextTC (CDTCMemDescriptor &tcMemDescriptor) {
 
 void SC_Channel_HandlePendingTCs(){
 
+#ifdef GSS_EMULATION
 	//Trigger other BottomHalfSignal if Queue is not empty
 	if(!TCQueue_IsEmpty())
 
 		CCTCManager::EDROOMEventIRQ18.SignalFromTask();
+#endif
+
 }
 
 extern "C" void SC_Channel_TxTM(const tm_mem_descriptor_t *pTMDescriptor) {
 
-
+#ifdef GSS_EMULATION
 	TXLockFunction();
 	EmuGSS_ShowTM(pTMDescriptor);
 	TXUnlockFunction();
-
+#endif
 
 }
 

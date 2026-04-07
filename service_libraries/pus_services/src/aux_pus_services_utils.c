@@ -47,6 +47,10 @@ error_code_t pus_services_TM_X_Y_write_PIDValue(tm_handler_t *ptm_handler,
 	case (uint8_item_type):
 		error = tm_handler_append_uint8_appdata_field(ptm_handler,
 				sys_data_pool_get_uint8_param(param_id));
+		break;
+	case (int16_item_type):
+		error = tm_handler_append_int16_appdata_field(ptm_handler,
+				sys_data_pool_get_int16_param(param_id));
 
 		break;
 	default:
@@ -77,6 +81,13 @@ error_code_t pus_services_TM_X_Y_write_saved_PIDValue(tm_handler_t *ptm_handler,
 				p_pid_value->uint8_data);
 
 		break;
+
+	case (int16_item_type):
+		error = tm_handler_append_int16_appdata_field(ptm_handler,
+				p_pid_value->int16_data);
+
+		break;
+
 	default:
 		error = 2;
 

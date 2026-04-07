@@ -181,3 +181,18 @@ error_code_t  pus_service1_tx_TM_1_4_TC_X_Y_NO_EXEC_CODE (
 
 }
 
+error_code_t  pus_service1_tx_TM_1_4_TC_129_1_INVALID_FLIGHT_PLAN (
+		tc_handler_t *ptc_handler) {
+
+	return (pus_service1_tx_TM_1_X_no_failure_data(ptc_handler,
+			TCVerifStageExecStart, TM_1_4_TC_129_1_INVALID_FLIGHT_PLAN));
+
+}
+
+error_code_t  pus_service1_tx_TM_1_4_TC_129_2_INVALID_KP_KI_KD (
+		tc_handler_t *ptc_handler) {
+
+	return (pus_service1_tx_TM_1_X_no_failure_data(ptc_handler,
+			TCVerifStageExecStart, TM_1_4_TC_129_2_INVALID_KP_KI_KD_CONFIG));
+
+}
