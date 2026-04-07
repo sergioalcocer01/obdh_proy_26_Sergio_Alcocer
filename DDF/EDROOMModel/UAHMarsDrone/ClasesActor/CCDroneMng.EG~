@@ -29,8 +29,8 @@ DroneMngCtrl
 0
 [Version Grafico Puerto]
 0
-43
-93
+47
+4
 CPDroneMngCtrl
 [FinPuertos]
 [ActoresComponente]
@@ -62,7 +62,7 @@ CPDroneMngCtrl
 Top
 NULL
 [Subestados]
-1
+4
 [Version SubEstados]
 3
 I
@@ -78,14 +78,239 @@ I
 0
 73 73 55 55
 [FinObjetoGrafico]
-[PuntosEleccion]
+SelfTest
+;
+;
+;
+;
+;
+1
 0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+218 122 90 60
+[FinObjetoGrafico]
+Ready
+;
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+182 241 90 60
+[FinObjetoGrafico]
+FlightPlan
+;
+;
+;
+;
+;
+1
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+255 471 259 60
+[FinObjetoGrafico]
+[PuntosEleccion]
+2
 [Version PuntosEleccion]
 2
-[Transiciones]
+CtrlAlgorithm
 0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+418 245 35 35
+[FinObjetoGrafico]
+ExecTC
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+248 352 35 35
+[FinObjetoGrafico]
+CtrlAlgorithm
+0
+[Ramas]
+2
+[Version Ramas]
+5
+ProgNextCtrl
+true
+FlightPlan
+DSubEst
+;
+
+ 
+
+;
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+450 268 498 471 0
+[FinGraficoRama]
+PlanDone
+true
+Ready
+DSubEst
+;
+
+ 
+
+;
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+418 262 272 272 2
+[FinGraficoRama]
+ExecTC
+0
+[Ramas]
+2
+[Version Ramas]
+5
+WaitFP
+true
+Ready
+DSubEst
+;
+
+ 
+
+;
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+248 369 192 301 3
+[FinGraficoRama]
+InitFlightPlan
+true
+FlightPlan
+DSubEst
+;
+
+ 
+
+;
+;
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+272 383 301 471 0
+[FinGraficoRama]
+[Transiciones]
+4
 [Version Transicion]
 5
+Init
+I
+OSubEstI
+SelfTest
+DSubEst
+;
+[Trigger]
+EDROOMsl
+EDROOMStart
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+127 100 218 132 0
+[FinGraficoTransicion]
+
+SelfTest
+OSubEst
+Ready
+DSubEst
+;
+[Trigger]
+ 
+ 
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+256 182 249 241 2
+[FinGraficoTransicion]
+ExecTC
+Ready
+OSubEst
+ExecTC
+DPEleccion
+;
+[Trigger]
+ 
+ 
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+237 301 265 352 0
+[FinGraficoTransicion]
+CtrlAlgorithm
+FlightPlan
+OSubEst
+CtrlAlgorithm
+DPEleccion
+;
+[Trigger]
+ 
+ 
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+392 471 435 279 1
+[FinGraficoTransicion]
 [VariablesConstantes]
 0
 [Metodos]
