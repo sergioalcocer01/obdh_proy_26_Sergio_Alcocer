@@ -19,9 +19,9 @@ UAHMarsDrone
 [CurrentTarget]
 0
 [MESP Directory]
-Z:\home\atcsol\OBDH_2026-workspace\uah_mars_drone_freertos\asw
+z:\home\atcsol\OBDH_2026-workspace\uah_mars_drone_freertos_hito1\asw
 [MESP main Directory]
-Z:\home\atcsol\OBDH_2026-workspace\uah_mars_drone_freertos
+z:\home\atcsol\OBDH_2026-workspace\uah_mars_drone_freertos_hito1
 [MESP main prototype]
 int main (void)
 [MESP main return]
@@ -60,7 +60,7 @@ EDROOMTarget
 [Version]
 2
 DUMMY_MESCC_Lib
-1
+2
 [ActorDeployment]
 [Version]
 1
@@ -88,6 +88,18 @@ Timer
 -1
 -1
 0
+0
+[ActorDeployment]
+[Version]
+1
+DroneMng
+2
+10
+EDROOMprioNormal
+ 
+CCDroneMng
+UAHMarsDrone
+[EventsDeployment]
 0
 [EventDeployment]
 [Version]
