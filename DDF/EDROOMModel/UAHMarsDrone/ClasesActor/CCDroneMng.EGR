@@ -441,7 +441,7 @@ FProgNextCtrl()
 4
 	 
 VNextCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
-time=VNextDescentC
+time=VNextCtrl
  
 [ServiceRequest]
 InformAt
