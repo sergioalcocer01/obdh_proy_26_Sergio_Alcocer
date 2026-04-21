@@ -34,24 +34,7 @@ Timer
 EDROOMTimingSAP
 [FinPuertos]
 [ActoresComponente]
-1
-[Version Actor Componente]
-2
-DroneMng
-1
 0
-0
-10
-7
-EDROOMprioNormal
-
-[Version Grafico Actor Componente]
-0
-36.3281
-24.0246
-53.9062
-46.6119
-CCDroneMng
 [FinActoresComponente]
 [Uniones]
 0

@@ -170,9 +170,9 @@ true
 FlightPlan
 DSubEst
 FProgNextCtrl();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -227,9 +227,9 @@ GExecFlightPlan()
 FlightPlan
 DSubEst
 FInitFlightPlan();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -428,7 +428,7 @@ pus_service129_init_flight_plan();
 InformAt
 DroneTimer
 EDROOMSignalTimeout
-
+ 
 EDROOMprioVeryHigh
 Inform
 FProgNextCtrl()
@@ -447,7 +447,7 @@ time=VNextCtrl;
 InformAt
 DroneTimer
 EDROOMSignalTimeout
-
+ 
 EDROOMprioVeryHigh
 ReplyMsg
 FReplyDroneReady()
