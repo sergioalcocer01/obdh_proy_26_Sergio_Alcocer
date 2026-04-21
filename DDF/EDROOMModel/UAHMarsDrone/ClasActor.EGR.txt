@@ -2,5 +2,4 @@
 0
 UAHMarsDrone
 CCTCManager
-CCDroneMng
 //FINACTORES

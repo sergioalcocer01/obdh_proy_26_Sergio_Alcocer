@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-1
-1
+0
+0
 0
 [Estructura]
 [Version Estructura]
@@ -421,14 +421,14 @@ FInitFlightPlan()
 5
  
 time.GetTime(); // Get current monotonic time
-time+=Pr_Time(0,100); // Add X sec + Y microsec
+time+=Pr_Time(0,100000); // Add X sec + Y microsec
 VNextCtrl=time;
 pus_service129_init_flight_plan();
 [ServiceRequest]
 InformAt
 DroneTimer
 EDROOMSignalTimeout
-NULL
+ 
 EDROOMprioVeryHigh
 Inform
 FProgNextCtrl()
@@ -440,7 +440,7 @@ FProgNextCtrl()
  
 4
 	 
-VNextCtrl+= Pr_Time(0,100); // Add X sec + Y microsec
+VNextCtrl+= Pr_Time(0,100000); // Add X sec + Y microsec
 time=VNextCtrl;
  
 [ServiceRequest]
