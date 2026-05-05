@@ -1,0 +1,32 @@
+import "../../../dataclasses/CDTCMemDescriptor/models/CDTCMemDescriptor.ed_dclass";
+
+
+/*
+ * EDROOM Protocol Model.
+*/ 
+
+
+protocol CPRxTC{
+
+	uri :=es.uah.aut.srg.edroom.mclev.cmp_iface.CPRxTC;
+	version :=v1;
+
+
+	/*
+	 * Input messages.
+	*/ 
+
+	input messages
+
+	{
+
+
+		/*
+		 * Asynchronous messages.
+		*/ 
+
+		send EDROOMIRQsignal(CDTCMemDescriptor(v1));
+
+	};
+
+};
