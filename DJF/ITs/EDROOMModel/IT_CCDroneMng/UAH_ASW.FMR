@@ -19,9 +19,9 @@ UAH_ASW
 [CurrentTarget]
 0
 [MESP Directory]
-C:\Users\Sergio\Documents\OBDH-C\asw_pus_rtems_5_0_leon3_st19\asw
+C:\Users\Sergio\Documents\GitHub\obdh_proy_26_Sergio_Alcocer\DJF\ITs\it_asw_ccdronemng_freertos_hito3\asw
 [MESP main Directory]
-C:\Users\Sergio\Documents\OBDH-C\asw_pus_rtems_5_0_leon3_st19
+C:\Users\Sergio\Documents\GitHub\obdh_proy_26_Sergio_Alcocer\DJF\ITs\it_asw_ccdronemng_freertos_hito3
 [MESP main prototype]
 extern "C" rtems_task Init (uint32_t arg)
 [MESP main return]
