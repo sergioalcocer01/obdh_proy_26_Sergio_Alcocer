@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -20,7 +20,7 @@ NULL
 4
 [FinStack]
 [Puertos]
-3
+4
 [Version Puerto]
 0
 HK_FDIRCtrl
@@ -29,7 +29,7 @@ HK_FDIRCtrl
 0
 [Version Grafico Puerto]
 0
-31
+20
 93
 CPHK_FDIRCtrl
 [Version Puerto]
@@ -54,6 +54,17 @@ BKGExecCtrl
 72
 93
 CPBKGExecCtrl
+[Version Puerto]
+0
+DroneMngCtrl
+1
+1
+0
+[Version Grafico Puerto]
+0
+48
+93
+CPDroneMngCtrl
 [FinPuertos]
 [ActoresComponente]
 0
