@@ -25,8 +25,8 @@
  ****************************************************************************/
 
 
-#ifndef PUBLIC__ICUASW_PUS_SERVICE05_H
-#define PUBLIC__ICUASW_PUS_SERVICE05_H
+#ifndef SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE5_INCLUDE_PUS_SERVICE5_H_
+#define SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE5_INCLUDE_PUS_SERVICE5_H_
 
 #include "public/config.h"
 #include "public/basic_types.h"
@@ -39,8 +39,8 @@
 extern "C" {
 #endif
 
-//Informative EvIDs 0x1001,0x1002,0x1003,0x1004,0x1005,0x1006,0x1007,0x1008
-#define PUS_5_InformativeEvents 			8
+//Informative EvIDs 0x1001,0x1002,0x1003
+#define PUS_5_InformativeEvents 			3
 
 //Low Severity Anomaly EvIDs None
 #define PUS_5_LowSeverityAnomalyEvents 	0
@@ -52,17 +52,13 @@ extern "C" {
 //#define PUS_5_HighSeverityAnomalyEvents 	5
 
 //High Severity Anomaly EvIDs 0x4001,0x4002,0x4003
-#define PUS_5_HighSeverityAnomalyEvents 	3
+//TODO Set number of TM[5,4] events to 3
+#define PUS_5_HighSeverityAnomalyEvents 3
 
 enum pus_service5_TM_5_X_EvIDs{TM_5_1_START_UP=0x1001,
 	TM_5_1_SENSOR_ON=0x1002,TM_5_1_SENSOR_OFF=0x1003,
-	TM_5_1_DRONE_SELF_TEST_DONE=0x1004, TM_5_1_DRONE_LANDED=0x1005,
-	TM_5_1_DRONE_TAKE_OFF=0x1006, TM_5_1_DRONE_ADVANCE=0x1007,
-	TM_5_1_DRONE_START_LANDING=0x1008,
 	TM_5_4_PARAM_OUT_OF_LOW_LIMIT=0x4001,TM_5_4_PARAM_OUT_OF_HIGH_LIMIT=0x4002,
-	TM_5_4_PARAM_VALUE_NOT_EXPECTED=0x4003,
-	TM_5_4_DRONE_WIND_LIMIT_SURPASSED=0x4004,
-};
+	TM_5_4_PARAM_VALUE_NOT_EXPECTED=0x4003};
 
 struct param_out_of_limits_info{
 		uint16_t PID;
@@ -127,42 +123,10 @@ void pus_service5_exec_tc(tc_handler_t *ptc_handler);
 
 /**
  * \brief TX a TM[5,1] Power On
+ * \param ptc_handler pointer to the tc handler
  * \return 0 if no error
  */
 error_code_t pus_service1_tx_TM_5_1_start_up();
-
-
-/**
- * \brief TX a TM[5,1] Drone Self Test Done
- * \return 0 if no error
- */
-error_code_t pus_service1_tx_TM_5_1_drone_self_test_done();
-
-/**
- * \brief TX a TM[5,1] Drone TakeOff
- * \return 0 if no error
- */
-error_code_t pus_service1_tx_TM_5_1_drone_take_off();
-
-
-/**
- * \brief TX a TM[5,1] Drone TakeOff
- * \return 0 if no error
- */
-error_code_t pus_service1_tx_TM_5_1_drone_min_hight_reached();
-
-/**
- * \brief TX a TM[5,1] Drone landing
- * \return 0 if no error
- */
-error_code_t pus_service1_tx_TM_5_1_drone_landing();
-
-/**
- * \brief TX a TM[5,1] Drone landed
- * \return 0 if no error
- */
-error_code_t pus_service1_tx_TM_5_1_drone_landed();
-
 
 /**
  * \brief TX a TM[5,X] Parameter Monitoring

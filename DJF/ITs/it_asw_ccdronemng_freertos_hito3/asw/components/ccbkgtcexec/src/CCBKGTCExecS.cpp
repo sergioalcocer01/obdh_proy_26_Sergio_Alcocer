@@ -1,6 +1,6 @@
 
 
-#include <public/uah_asw_iface_v1.h>
+#include <public/ccbkgtcexec_iface_v1.h>
 
 
 
@@ -10,7 +10,7 @@
 
 
 
-UAH_ASW::UAH_ASW(TEDROOMComponentID id,
+CCBKGTCExec::CCBKGTCExec(TEDROOMComponentID id,
 		TEDROOMUInt32 roomNumMaxMens,
 		TEDROOMPriority roomtaskPrio,
 		TEDROOMStackSizeType roomStack,
@@ -18,14 +18,6 @@ UAH_ASW::UAH_ASW(TEDROOMComponentID id,
 
 		CEDROOMComponent(id,EDROOMprioMINIMUM+1,roomNumMaxMens,
 				roomtaskPrio,roomStack, pActorMemory ),
-
-		// *********** Timing service access point *********
-
-		EDROOMtimingSAP(this, 3,&pActorMemory->TimingMemory),
-
-		// *******************  Timers  ********************
-
-		Timer(&EDROOMtimingSAP, 2 ),
 
 		// ***************	Top State  *****************
 
@@ -46,7 +38,7 @@ UAH_ASW::UAH_ASW(TEDROOMComponentID id,
 //************************** EDROOMConfig **********************************
 
 
-int UAH_ASW::EDROOMConfig()
+int CCBKGTCExec::EDROOMConfig()
 {
 
 
@@ -57,13 +49,9 @@ int UAH_ASW::EDROOMConfig()
 
 //************************** EDROOMStart **********************************
 
-int UAH_ASW::EDROOMStart()
+int CCBKGTCExec::EDROOMStart()
 {
 
-
-	//****************** Timing Task Start*****************
-
-	EDROOMtimingSAP.Start();
 
 	//***************** CEDROOMComponent::EDROOMStart*********
 
@@ -82,7 +70,7 @@ int UAH_ASW::EDROOMStart()
 
 
 
-void UAH_ASW::EDROOMBehaviour()
+void CCBKGTCExec::EDROOMBehaviour()
 {
 
 	edroomTopState.EDROOMInit();
@@ -98,11 +86,11 @@ void UAH_ASW::EDROOMBehaviour()
 
 #ifdef _EDROOM_SYSTEM_CLOSE
 
-bool UAH_ASW::EDROOMIsComponentFinished()
+bool CCBKGTCExec::EDROOMIsComponentFinished()
 {
 
 
-	return ( TCManager.EDROOMIsComponentFinished() && HK_FDIRMng.EDROOMIsComponentFinished() && BKGTCExec.EDROOMIsComponentFinished() && DroneMng.EDROOMIsComponentFinished() && CEDROOMComponent::EDROOMIsComponentFinished());
+	return ( CEDROOMComponent::EDROOMIsComponentFinished());
 
 }
 
@@ -111,7 +99,7 @@ bool UAH_ASW::EDROOMIsComponentFinished()
 
 //****************** EDROOMMemory::SetMemory *******************************
 
-void UAH_ASW::CEDROOMMemory::SetMemory(TEDROOMUInt32 numMessages_ ,
+void CCBKGTCExec::CEDROOMMemory::SetMemory(TEDROOMUInt32 numMessages_ ,
 		CEDROOMMessage * MessagesMem_,
 		bool * MessagesMemMarks_,
 		TEDROOMUInt32 numberOfNodes_,
@@ -121,8 +109,6 @@ void UAH_ASW::CEDROOMMemory::SetMemory(TEDROOMUInt32 numMessages_ ,
 
 		CEDROOMComponentMemory::SetMemory( numMessages_,MessagesMem_, MessagesMemMarks_,
 			numberOfNodes_,QueueNodesMem_, QueueNodesMemMarks_, QueueHeads);
-
-		TimingMemory.SetMemory(3,TimerInf,&TimerInfMarks[0],TimeOutMsgs,&TimeOutMsgsMarks[0]);
 
 
 }

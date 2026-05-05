@@ -1,6 +1,6 @@
 
 
-#include <public/uah_asw_iface_v1.h>
+#include <public/cchk_fdirmng_iface_v1.h>
 
 
 
@@ -10,7 +10,7 @@
 
 
 
-UAH_ASW::UAH_ASW(TEDROOMComponentID id,
+CCHK_FDIRMng::CCHK_FDIRMng(TEDROOMComponentID id,
 		TEDROOMUInt32 roomNumMaxMens,
 		TEDROOMPriority roomtaskPrio,
 		TEDROOMStackSizeType roomStack,
@@ -25,11 +25,11 @@ UAH_ASW::UAH_ASW(TEDROOMComponentID id,
 
 		// *******************  Timers  ********************
 
-		Timer(&EDROOMtimingSAP, 2 ),
+		HK_FDIRTimer(&EDROOMtimingSAP, 2 ),
 
 		// ***************	Top State  *****************
 
-		edroomTopState(*this)
+		edroomTopState(*this,pActorMemory)
 
 
 {
@@ -46,7 +46,7 @@ UAH_ASW::UAH_ASW(TEDROOMComponentID id,
 //************************** EDROOMConfig **********************************
 
 
-int UAH_ASW::EDROOMConfig()
+int CCHK_FDIRMng::EDROOMConfig()
 {
 
 
@@ -57,7 +57,7 @@ int UAH_ASW::EDROOMConfig()
 
 //************************** EDROOMStart **********************************
 
-int UAH_ASW::EDROOMStart()
+int CCHK_FDIRMng::EDROOMStart()
 {
 
 
@@ -82,7 +82,7 @@ int UAH_ASW::EDROOMStart()
 
 
 
-void UAH_ASW::EDROOMBehaviour()
+void CCHK_FDIRMng::EDROOMBehaviour()
 {
 
 	edroomTopState.EDROOMInit();
@@ -98,11 +98,11 @@ void UAH_ASW::EDROOMBehaviour()
 
 #ifdef _EDROOM_SYSTEM_CLOSE
 
-bool UAH_ASW::EDROOMIsComponentFinished()
+bool CCHK_FDIRMng::EDROOMIsComponentFinished()
 {
 
 
-	return ( TCManager.EDROOMIsComponentFinished() && HK_FDIRMng.EDROOMIsComponentFinished() && BKGTCExec.EDROOMIsComponentFinished() && DroneMng.EDROOMIsComponentFinished() && CEDROOMComponent::EDROOMIsComponentFinished());
+	return ( CEDROOMComponent::EDROOMIsComponentFinished());
 
 }
 
@@ -111,7 +111,7 @@ bool UAH_ASW::EDROOMIsComponentFinished()
 
 //****************** EDROOMMemory::SetMemory *******************************
 
-void UAH_ASW::CEDROOMMemory::SetMemory(TEDROOMUInt32 numMessages_ ,
+void CCHK_FDIRMng::CEDROOMMemory::SetMemory(TEDROOMUInt32 numMessages_ ,
 		CEDROOMMessage * MessagesMem_,
 		bool * MessagesMemMarks_,
 		TEDROOMUInt32 numberOfNodes_,
