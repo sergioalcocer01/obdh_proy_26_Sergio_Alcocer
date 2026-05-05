@@ -111,6 +111,49 @@ error_code_t pus_service1_tx_TM_5_1_start_up() {
 	return pus_service5_tx_TM_5_X_no_aux_data(EvID);
 }
 
+error_code_t pus_service1_tx_TM_5_1_drone_self_test_done() {
+
+	uint16_t EvID = TM_5_1_DRONE_SELF_TEST_DONE;
+
+	return pus_service5_tx_TM_5_X_no_aux_data(EvID);
+}
+
+error_code_t pus_service1_tx_TM_5_1_drone_take_off(){
+
+
+
+	uint16_t EvID = TM_5_1_DRONE_TAKE_OFF;
+
+			return pus_service5_tx_TM_5_X_no_aux_data(EvID);
+}
+
+
+error_code_t pus_service1_tx_TM_5_1_drone_min_hight_reached(){
+
+	uint16_t EvID = TM_5_1_DRONE_ADVANCE;
+
+		return pus_service5_tx_TM_5_X_no_aux_data(EvID);
+
+}
+
+error_code_t pus_service1_tx_TM_5_1_drone_landing(){
+
+	uint16_t EvID = TM_5_1_DRONE_START_LANDING;
+
+		return pus_service5_tx_TM_5_X_no_aux_data(EvID);
+
+}
+
+
+
+error_code_t pus_service1_tx_TM_5_1_drone_landed(){
+
+	uint16_t EvID = TM_5_1_DRONE_LANDED;
+
+	return pus_service5_tx_TM_5_X_no_aux_data(EvID);
+
+}
+
 
 error_code_t pus_service1_tx_TM_5_X_param_out_of_limit(uint16_t EvID,
 		param_out_of_limits_info_t *pfault_info) {

@@ -29,7 +29,7 @@
 
 //Enable Config, the events defined are enabled by default
 uint32_t EvIDEnableConfig[4] =
-		{ 0x00000007, 0x00000000, 0x00000000, 0x00000007 };
+		{ 0x000000FF, 0x00000000, 0x00000000, 0x00000003 };
 
 
 uint8_t pus_service5_cal_EvID_TM_5_X_subtype(uint16_t validEvID) {
@@ -128,8 +128,7 @@ void pus_service5_set_EvID_enable_flag(uint16_t EvID, bool_t enable_value) {
 			if (enable_value) {
 				EvIDEnableConfig[index] |= mask;
 			} else {
-				////TODO use mask to clear the event enable bit
-				EvIDEnableConfig[index] &= ~mask;
+				EvIDEnableConfig[index] &= ~(mask);
 			}
 		}
 	}
