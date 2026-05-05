@@ -6,7 +6,7 @@
 [Nombre Modelo]
 UAH_ASW
 [Modificado]
-0
+1
 [Opciones Modelo]
 [Version Opciones Modelo]
 4
@@ -23,9 +23,9 @@ C:\Users\Sergio\Documents\GitHub\obdh_proy_26_Sergio_Alcocer\DJF\ITs\it_asw_ccdr
 [MESP main Directory]
 C:\Users\Sergio\Documents\GitHub\obdh_proy_26_Sergio_Alcocer\DJF\ITs\it_asw_ccdronemng_freertos_hito3
 [MESP main prototype]
-extern "C" rtems_task Init (uint32_t arg)
+int main (void)
 [MESP main return]
-;
+return 0;
 [Dyn Priority]
 0
 [Main Cmp Priority]

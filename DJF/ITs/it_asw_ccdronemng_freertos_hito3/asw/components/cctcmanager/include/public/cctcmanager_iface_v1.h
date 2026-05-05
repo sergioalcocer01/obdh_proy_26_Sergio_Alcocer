@@ -345,6 +345,11 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FFwdDroneTC();
+
+		/**
+		 * \brief  
+		 */
 		void	FFwdHK_FDIRTC();
 
 		/**
@@ -395,22 +400,17 @@ public:
 		/**
 		 * \brief  
 		 */
+		bool	GFwdDroneTC();
+
+		/**
+		 * \brief  
+		 */
 		bool	GFwdToHK_FDIR();
 
 		/**
 		 * \brief  
 		 */
 		bool	GToReboot();
-
-		/**
-		 * \brief 
-		 */
-		bool	GFwdDroneTC();
-
-		/**
-		 * \brief 
-		 */
-		void	FFwdDroneTC();
 
 	};
 
@@ -459,7 +459,7 @@ public:
 		// User-defined Functions
 
 		/**
-		 * \brief 
+		 * \brief  
 		 */
 		void	FInvokeDroneSetUp();
 
