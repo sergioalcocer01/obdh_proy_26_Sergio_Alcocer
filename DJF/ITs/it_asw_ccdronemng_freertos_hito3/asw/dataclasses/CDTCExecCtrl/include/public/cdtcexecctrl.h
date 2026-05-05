@@ -49,7 +49,7 @@ class CDTCExecCtrl{
 	 * \return true if it is a Background telecommand
 	 *
 	 */
-	bool IsBKGTC() {return (ExecCtrlBKGTC==mExecCtrl);};
+	bool IsBKGTC() {return (ExecCtrlBKGTC==mExecCtrl);}
 
 	//TODO 11 Part 2 Define the codeo of IsDroneTC() to TTCExecCtrl
 
@@ -59,7 +59,7 @@ class CDTCExecCtrl{
 	 * \return true if it is a Drone telecommand
 	 *
 	 */
-	bool IsDroneTC() {  };
+	bool IsDroneTC() {return (ExecCtrlDroneTC==mExecCtrl);};
 	
 };
 

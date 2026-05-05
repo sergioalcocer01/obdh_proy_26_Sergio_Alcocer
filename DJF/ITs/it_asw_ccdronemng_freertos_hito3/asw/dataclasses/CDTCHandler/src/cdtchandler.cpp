@@ -77,9 +77,11 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 		execCtrl.mExecCtrl = ExecCtrlBKGTC;
 		break;
 
+	case (129):
+		execCtrl.mExecCtrl = ExecCtrlDroneTC;
+		break;
 
 	default:
-
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
 		break;
 
@@ -226,7 +228,9 @@ void CDTCHandler::ExecDroneTC() {
 
 		switch (type) {
 
-
+		case (129):
+			pus_service129_exec_tc(&mTCHandler);
+			break;
 
 		default:
 			//No defined code for this TC. Design error

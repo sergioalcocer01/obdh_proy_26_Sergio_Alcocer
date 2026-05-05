@@ -42,12 +42,13 @@
 #include "public/tc_rate_ctrl.h"
 
 //TODO 10 Part1 include pus_service ST[129,X] Module
+#include "public/pus_service129.h"
 #include "public/pus_service01.h"
 #include "public/pus_service02.h"
 #include "public/pus_service03.h"
 
 //TODO 10 Part2 include pus_service04.h only if ST[04] has been integrated
-//#include "public/pus_service04.h"
+#include "public/pus_service04.h"
 
 #include "public/pus_service05.h"
 #include "public/pus_service12.h"

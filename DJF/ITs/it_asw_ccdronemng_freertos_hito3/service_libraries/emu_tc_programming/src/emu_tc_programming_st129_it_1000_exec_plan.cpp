@@ -55,7 +55,6 @@
 #define IT_1000_TIME_step1 (OBT_AFTER_POWER_ON + 4)
 
 
-
 EmuGSS_TCProgram129_1 prog_IT_1000_step_0(IT_1000_TIME_step0,
 		"IT_UAH_DRONE_1000 step 1, Set Flight Plan x=100.5, y=50.5, z=15.5",100.5,50.5,15.5);
 

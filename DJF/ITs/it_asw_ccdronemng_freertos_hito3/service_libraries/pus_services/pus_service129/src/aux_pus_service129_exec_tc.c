@@ -42,6 +42,9 @@ void pus_service129_exec_TC_129_1(tc_handler_t *ptc_handler) {
 	// TODO 14 Part2  -> FP_y use tc_handler_get_float_appdata_field
 
 	// TODO 14 Part3  TC -> FP_z use tc_handler_get_float_appdata_field
+	error = tc_handler_get_float_appdata_field(ptc_handler, &FP_x);
+	error += tc_handler_get_float_appdata_field(ptc_handler, &FP_y);
+	error += tc_handler_get_float_appdata_field(ptc_handler, &FP_z);
 
 	if (error) {
 
