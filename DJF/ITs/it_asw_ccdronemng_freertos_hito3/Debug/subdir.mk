@@ -4,16 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../uah_asw_mmesp_project.cpp \
-../uahmarsdrone_mmesp_project.cpp 
+../uah_asw_mmesp_project.cpp 
 
 CPP_DEPS += \
-./uah_asw_mmesp_project.d \
-./uahmarsdrone_mmesp_project.d 
+./uah_asw_mmesp_project.d 
 
 OBJS += \
-./uah_asw_mmesp_project.o \
-./uahmarsdrone_mmesp_project.o 
+./uah_asw_mmesp_project.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -28,7 +25,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./uah_asw_mmesp_project.d ./uah_asw_mmesp_project.o ./uahmarsdrone_mmesp_project.d ./uahmarsdrone_mmesp_project.o
+	-$(RM) ./uah_asw_mmesp_project.d ./uah_asw_mmesp_project.o
 
 .PHONY: clean--2e-
 
