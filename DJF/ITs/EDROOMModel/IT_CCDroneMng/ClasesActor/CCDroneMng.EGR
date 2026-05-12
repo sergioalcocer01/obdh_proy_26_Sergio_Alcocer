@@ -240,7 +240,7 @@ FInitFlightPlan();
 270 383 265 462 2
 [FinGraficoRama]
 [Transiciones]
-4
+5
 [Version Transicion]
 5
 Init
@@ -334,6 +334,29 @@ true
 [Version GraficoTransicion]
 0
 356 462 435 279 1
+[FinGraficoTransicion]
+ExecTCInFlight
+FlightPlan
+OSubEst
+FlightPlan
+DSubEst
+;
+[Trigger]
+DroneMngCtrl
+SDroneTC
+true
+ 
+ 
+ 
+FExecDroneTC();
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+414 522 289 522 5
 [FinGraficoTransicion]
 [VariablesConstantes]
 1

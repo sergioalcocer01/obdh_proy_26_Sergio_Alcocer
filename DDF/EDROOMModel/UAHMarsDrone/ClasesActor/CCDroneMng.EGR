@@ -139,7 +139,7 @@ FlightPlan
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-219 462 259 60
+133 451 359 61
 [FinObjetoGrafico]
 [PuntosEleccion]
 2
@@ -180,7 +180,7 @@ FProgNextCtrl();
 [GraficoRama]
 [Version GraficoRama]
 0
-450 268 462 462 0
+450 268 469 451 0
 [FinGraficoRama]
 PlanDone
 GFlightPlanDone()
@@ -237,7 +237,7 @@ FInitFlightPlan();
 [GraficoRama]
 [Version GraficoRama]
 0
-270 383 265 462 2
+270 383 196 451 2
 [FinGraficoRama]
 [Transiciones]
 4
@@ -333,7 +333,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-356 462 435 279 1
+322 451 435 279 1
 [FinGraficoTransicion]
 [VariablesConstantes]
 1
