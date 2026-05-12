@@ -87,6 +87,10 @@ void pus_service129_exec_TC_129_2(tc_handler_t *ptc_handler) {
 
 	// TODO 17 Part1 TC -> Kd use tc_handler_get_float_appdata_field
 
+	error = tc_handler_get_float_appdata_field(ptc_handler, &Kp);
+	error += tc_handler_get_float_appdata_field(ptc_handler, &Ki);
+	error += tc_handler_get_float_appdata_field(ptc_handler, &Kd);
+
 	if (error) {
 
 		// error in pack length
