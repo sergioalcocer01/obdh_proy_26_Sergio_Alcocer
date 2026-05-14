@@ -51,14 +51,33 @@
 
 EmuGSS_TCProgram12_5_Limit_UINT32 prog_FT_1020_step_0(FT_1020_TIME_step0,
 		"IT_UAH_DRONE_FDIR_1020 step 0, Config PMODID 0 for monitoring PID UAH_DRONE_Wind ",
-			0, UAH_DRONE_Wind, 1, 2 ,0 , 0x4001, FDIR_WIND_UINT32_LIMIT, TODO Set Event);
+			0, UAH_DRONE_Wind, 1, 2 ,0 , 0x4001, FDIR_WIND_UINT32_LIMIT, 0x4002);
 
 EmuGSS_TCProgram19_1_Action_129_4 prog_FT_1020_step_1(FT_1020_TIME_step1,
 					"IT_UAH_DRONE_FDIR_1020 step 1, 0x4002 Action is Abort Flight",
-					TODO SET Event);
+					0x4002);
 
 
 //TODO Complete steps 2, 3, 4, 5 & 6 to implement the Drone FDIR test 
 
+// STEP 2: Habilitar la Acción de Evento (ST[19,4])
+EmuGSS_TCProgram19_4 prog_FT_1020_step_2(FT_1020_TIME_step2,
+					"IT UAH DRONE FDIR 1020 step 2, 0x4002 Action enabled", 0x4002);
+
+// STEP 3: Habilitar la Monitorización (ST[12,1]) para el PMONID 0
+EmuGSS_TCProgram12_1 prog_FT_1020_step_3(FT_1020_TIME_step3,
+					"IT UAH DRONE FDIR 1020 step 3, Enable Monitoring PMONID 0", 0);
+
+// STEP 4: Configurar parámetros PID (ST[129,2]) - Valores según PDF pág 7
+EmuGSS_TCProgram129_2 prog_FT_1020_step_4(FT_1020_TIME_step4,
+					"IT UAH DRONE 1020 step 4, Set PID Params to 0.2, 0.15, 0.05", 0.2, 0.15, 0.05);
+
+// STEP 5: Configurar Plan de Vuelo (ST[129,1]) - Coordenadas según PDF pág 7
+EmuGSS_TCProgram129_1 prog_FT_1020_step_5(FT_1020_TIME_step5,
+					"IT UAH DRONE 1020 step 5, Set Flight Plan X=150.5, Y=90.5, Z=30.2", 150.5, 90.5, 30.2);
+
+// STEP 6: Ejecutar Plan de Vuelo (ST[129,3]) - Inicia el despegue
+EmuGSS_TCProgram129_3 prog_FT_1020_step_6(FT_1020_TIME_step6,
+					"IT UAH DRONE 1020 step 6, Exec Flight Plan");
 
 #endif

@@ -85,7 +85,7 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := it_asw_ccdronemng_freertos_hito3
+BUILD_ARTIFACT_NAME := it_asw_ccdronemng_freertos_hito4
 BUILD_ARTIFACT_EXTENSION :=
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
@@ -96,19 +96,19 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 all: main-build
 
 # Main-build Target
-main-build: it_asw_ccdronemng_freertos_hito3
+main-build: it_asw_ccdronemng_freertos_hito4
 
 # Tool invocations
-it_asw_ccdronemng_freertos_hito3: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+it_asw_ccdronemng_freertos_hito4: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "it_asw_ccdronemng_freertos_hito3" $(OBJS) $(USER_OBJS) $(LIBS) -lpthread
+	g++  -o "it_asw_ccdronemng_freertos_hito4" $(OBJS) $(USER_OBJS) $(LIBS) -lpthread
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) it_asw_ccdronemng_freertos_hito3
+	-$(RM) it_asw_ccdronemng_freertos_hito4
 	-@echo ' '
 
 .PHONY: all clean dependents main-build

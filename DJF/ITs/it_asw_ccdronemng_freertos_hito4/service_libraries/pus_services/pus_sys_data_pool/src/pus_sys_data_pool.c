@@ -90,7 +90,7 @@ uint16_t sys_data_pool_item_type_size(data_pool_item_type_t type) {
 		break;
 
 	case (int16_item_type):
-		size = 1;
+		size = 2;
 		break;
 	case (no_valid_param_id):
 		//If not valid PID, size 0
