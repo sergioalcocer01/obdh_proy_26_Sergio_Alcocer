@@ -109,6 +109,10 @@ void CDTCHandler::ExecPrioTC() {
 
 		switch (type) {
 
+		case (2):
+			pus_service2_exec_tc(&mTCHandler);
+			break;
+
 		case (17):
 			pus_service17_exec_tc(&mTCHandler);
 			break;
