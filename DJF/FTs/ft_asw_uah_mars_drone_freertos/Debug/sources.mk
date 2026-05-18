@@ -61,6 +61,7 @@ service_libraries/pus_services/pus_service03/src \
 service_libraries/pus_services/pus_service04/src \
 service_libraries/pus_services/pus_service05/src \
 service_libraries/pus_services/pus_service12/src \
+service_libraries/pus_services/pus_service128/src \
 service_libraries/pus_services/pus_service129/src \
 service_libraries/pus_services/pus_service17/src \
 service_libraries/pus_services/pus_service19/src \

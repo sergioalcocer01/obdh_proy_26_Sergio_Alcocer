@@ -81,6 +81,10 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 		execCtrl.mExecCtrl = ExecCtrlDroneTC;
 		break;
 
+	case (128):
+		execCtrl.mExecCtrl = ExecCtrlReboot;
+		break;
+
 	default:
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
 		break;
@@ -133,7 +137,9 @@ void CDTCHandler::ExecRebootTC() {
 
 		switch (type) {
 
-
+		case (128):
+			pus_service128_exec_tc(&mTCHandler);
+			break;
 
 		default:
 			//No defined code for this TC. ASW design error

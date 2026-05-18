@@ -39,7 +39,7 @@
 
 //TODO 12 Configure SIDs
 HK_config_t HKConfig[PUS_SERVICE3_MAX_NUM_OF_SIDS] = {
-		{ SIDEnabled, 0, 2, 0, 6, { 0, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0 } },
+		{ SIDEnabled, 0, 3, 0, 6, { 0, 1, 2, 3, 4, 5, 0, 0, 0, 0, 0, 0 } },
 		{ SIDEnabled, 10, 4, 0, 6, { 30, 31, 32, 33, 34, 35, 0, 0, 0, 0, 0, 0 } },
 		{ SIDDisabled, 11, 5, 0, 2, { 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
 		{ SIDConfigUnused, 0, 0, 0, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
