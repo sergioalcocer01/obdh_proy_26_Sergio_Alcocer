@@ -32,7 +32,7 @@
 #include <public/emu_gss_v1.h>
 
 
-// #define IT_UAH_DRONE_FDIR_1030
+#define IT_UAH_DRONE_FDIR_1030
 
 
 #ifdef IT_UAH_DRONE_FDIR_1030
