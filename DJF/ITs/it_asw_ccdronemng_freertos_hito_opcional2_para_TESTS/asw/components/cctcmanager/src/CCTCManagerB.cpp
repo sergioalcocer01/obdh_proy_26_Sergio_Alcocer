@@ -373,6 +373,18 @@ bool CCTCManager::EDROOM_CTX_Ready_1::EDROOMSearchContextTrans(
 
 	// User-defined Functions   ****************************
 
+void	CCTCManager::EDROOM_CTX_Ready_1::FInFlightPlan()
+
+{
+
+CDTCHandler & varEDROOMIRQsignal = *(CDTCHandler *)Msg->data;
+CDTCAcceptReport acceptReport;
+varEDROOMIRQsignal.MngTCRejectionInFlight(acceptReport);
+
+}
+
+
+
 void	CCTCManager::EDROOM_CTX_Ready_1::FInvokeDroneSetUp()
 
 {
@@ -395,21 +407,6 @@ bool	CCTCManager::EDROOM_CTX_Ready_1::GInFlight()
 {
 
 return !pus_service129_flight_plan_done();
-
-}
-
-
-
-void	CCTCManager::EDROOM_CTX_Ready_1::FInFlightPlan()
-
-{
-   //Handle Msg->data
-  CDTCMemDescriptor & varEDROOMIRQsignal = *(CDTCMemDescriptor *)Msg->data;
-
-VCurrentTC.BuildFromDescriptor(varEDROOMIRQsignal);
-CDTCAcceptReport acceptReport;
-
-VCurrentTC.MngTCRejectionInFlight(acceptReport);
 
 }
 
@@ -859,7 +856,7 @@ TEDROOMTransId CCTCManager::EDROOM_SUB_Ready_1::Arrival(
 					break;
 
 				case (Flying):
-				//Msg->Data Handling 
+				//Execute Action 
 				FInFlightPlan();
 					//Go to the state InFlight
 					edroomNextState = InFlight;

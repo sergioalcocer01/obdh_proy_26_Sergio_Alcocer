@@ -471,17 +471,17 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FInFlightPlan();
+
+		/**
+		 * \brief  
+		 */
 		void	FInvokeDroneSetUp();
 
 		/**
 		 * \brief  
 		 */
 		bool	GInFlight();
-
-		/**
-		 * \brief 
-		 */
-		void	FInFlightPlan();
 
 	};
 
