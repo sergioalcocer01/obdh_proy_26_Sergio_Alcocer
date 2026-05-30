@@ -441,7 +441,6 @@ public:
 			StartFlight,
 			Flying,
 			FlightDone,
-			NewRxTC,
 			EDROOMMemoryTrans };
 
 

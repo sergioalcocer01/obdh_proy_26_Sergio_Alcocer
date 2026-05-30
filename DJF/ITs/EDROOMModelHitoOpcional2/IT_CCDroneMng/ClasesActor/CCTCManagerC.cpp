@@ -325,6 +325,20 @@ bool CCTCManager::EDROOM_CTX_Ready_1::EDROOMSearchContextTrans(
 	 switch(Msg->signal)
 	 {
 
+		// Check trigger for signal EDROOMIRQsignal
+
+		 case (EDROOMIRQsignal): 
+
+				if (*Msg->GetPInterface() == RxTC)
+				{
+
+					 edroomValidMsg=true;
+					edroomCurrentTrans.localId = EDROOM_CTX_Top_0::NewRxTC;
+					edroomCurrentTrans.distanceToContext = 1 ;
+				 }
+
+			 break;
+
 		// Check trigger for signal SEvAction
 
 		 case (SEvAction): 
@@ -855,14 +869,6 @@ TEDROOMTransId CCTCManager::EDROOM_SUB_Ready_1::Arrival(
 					edroomContextExit=0;
 					break;
 
-				case (NewRxTC):
-					//Exit across the exit point NewRxTC
-					edroomCurrentTrans.localId= 
-						EDROOM_CTX_Top_0::NewRxTC;
-					edroomCurrentTrans.distanceToContext= 1;
-					edroomContextExit=1;
-					break;
-
 			}
 
 		}else
@@ -920,15 +926,6 @@ TEDROOMTransId CCTCManager::EDROOM_SUB_Ready_1::EDROOMStandByArrival()
 
 					//Next transition is  StartFlight
 					edroomCurrentTrans.localId= StartFlight;
-					edroomCurrentTrans.distanceToContext = 0;
-					edroomValidMsg=true;
-				 }
-
-				 else if (*Msg->GetPInterface() == RxTC)
-				{
-
-					//Next transition is  NewRxTC
-					edroomCurrentTrans.localId= NewRxTC;
 					edroomCurrentTrans.distanceToContext = 0;
 					edroomValidMsg=true;
 				 }

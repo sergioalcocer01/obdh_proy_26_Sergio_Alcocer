@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-1
-1
+0
+0
 0
 [Estructura]
 [Version Estructura]
@@ -733,7 +733,7 @@ InFlight
 [Version PuntosEleccion]
 2
 [Transiciones]
-5
+4
 [Version Transicion]
 5
 InvokeDroneSetUp
@@ -827,29 +827,6 @@ true
 [Version GraficoTransicion]
 0
 389 354 257 310 3
-[FinGraficoTransicion]
-NewRxTC
-StandBy
-OSubEst
-NewRxTC
-DPSalida
-;
-[Trigger]
-RxTC
-EDROOMIRQsignal
-true
- 
- 
- 
-;
-;
-;
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-215 322 360 698 0
 [FinGraficoTransicion]
 [VariablesConstantes]
 0
