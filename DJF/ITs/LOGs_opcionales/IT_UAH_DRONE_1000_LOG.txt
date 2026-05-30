@@ -286,3 +286,26 @@ GSS Rx TM [1,3]
 GSS Rx TM [1,7]
 GSS Rx TM [3,25] SID 10 Param Values:  { X= 0.00 m, Y= 0.00 m, Z= 0.00 m, 
 					 Vx= 0.00 m/s, Vy= 0.00 m/s, Vz= 0.00 m/s }
+
+
+Current OBT is = 100056
+GSS Rx TM [3,25] SID 0 Param Values:  { V5: 1.09 volts, V3.3: 2.38 volts, I5: 3.18 mA, I3.3: 4.85 mA, Temp: -2.52 degree
+					, Wind: 9.99 m/s }
+
+
+Current OBT is = 100057
+GSS Rx TM [3,25] SID 10 Param Values:  { X= 0.00 m, Y= 0.00 m, Z= 0.00 m, 
+					 Vx= 0.00 m/s, Vy= 0.00 m/s, Vz= 0.00 m/s }
+
+
+Current OBT is = 100058
+
+Current OBT is = 100059
+GSS Rx TM [3,25] SID 0 Param Values:  { V5: 1.11 volts, V3.3: 2.36 volts, I5: 3.18 mA, I3.3: 4.84 mA, Temp: -2.50 degree
+					, Wind: 9.99 m/s }
+
+GSS Rx TM [3,25] SID 10 Param Values:  { X= 0.00 m, Y= 0.00 m, Z= 0.00 m, 
+					 Vx= 0.00 m/s, Vy= 0.00 m/s, Vz= 0.00 m/s }
+
+
+Current OBT is = 100060		 Vx= 0.00 m/s, Vy= 0.00 m/s, Vz= 0.00 m/s }
