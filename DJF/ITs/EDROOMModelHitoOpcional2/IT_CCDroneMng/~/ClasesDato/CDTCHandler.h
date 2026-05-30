@@ -7,7 +7,6 @@
 #include "public/tmtc_dyn_mem.h"
 #include "public/pus_tc_handler.h"
 #include "public/pus_service01.h"
-#include "public/cdtchandler.h"
 
 #include "public/cdtcmemdescriptor_iface_v1.h"
 #include "public/cdtcacceptreport_iface_v1.h"
