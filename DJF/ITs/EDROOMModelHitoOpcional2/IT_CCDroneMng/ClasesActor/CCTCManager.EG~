@@ -834,6 +834,27 @@ true
 3
 [Version Metodos]
 21
+MsgDataHandler
+FInFlightPlan()
+0
+0
+0
+0
+1
+ 
+6
+	
+ 
+VCurrentTC.BuildFromDescriptor(varEDROOMIRQsignal);
+ 
+CDTCAcceptReport acceptReport;
+VCurrentTC.MngTCRejectionInFlight(acceptReport);
+[ServiceRequest]
+Msg->data
+RxTC
+EDROOMIRQsignal
+CDTCMemDescriptor
+ 
 InvokeMsg
 FInvokeDroneSetUp()
 0
@@ -864,27 +885,6 @@ GInFlight()
  
 1
 return !pus_service129_flight_plan_done();
-MsgDataHandler
-FInFlightPlan()
-0
-0
-0
-0
-1
-
-6
-	
-
-VCurrentTC.BuildFromDescriptor(varEDROOMIRQsignal);
- 
-CDTCAcceptReport acceptReport;
-VCurrentTC.MngTCRejectionInFlight(acceptReport);
-[ServiceRequest]
-Msg->data
-RxTC
-EDROOMIRQsignal
-CDTCMemDescriptor
-
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]
