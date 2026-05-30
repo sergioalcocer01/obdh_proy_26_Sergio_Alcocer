@@ -126,7 +126,7 @@ External
 Top
 NULL
 [Subestados]
-5
+4
 [Version SubEstados]
 3
 I
@@ -153,7 +153,7 @@ Ready
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-182 104 143 315
+183 104 143 315
 [FinObjetoGrafico]
 Reboot
 FReboot();
@@ -180,19 +180,6 @@ ValidTC
 [Version Objeto Grafico]
 0
 485 590 143 43
-[FinObjetoGrafico]
-Flight
-;
-;
-;
-;
-;
-1
-0
-[ObjetoGrafico]
-[Version Objeto Grafico]
-0
-58 224 90 60
 [FinObjetoGrafico]
 [PuntosEleccion]
 2
@@ -250,7 +237,7 @@ FMngTCRejection();
 [GraficoRama]
 [Version GraficoRama]
 0
-235 611 182 378 3
+235 611 183 378 3
 [FinGraficoRama]
 HandleTC
 0
@@ -290,7 +277,7 @@ FExecPrioTC();
 [GraficoRama]
 [Version GraficoRama]
 0
-536 334 325 117 3
+536 334 326 117 3
 [FinGraficoRama]
 FwdHK_FDIRTC
 GFwdToHK_FDIR()
@@ -307,7 +294,7 @@ FFwdHK_FDIRTC();
 [GraficoRama]
 [Version GraficoRama]
 0
-538 344 325 213 3
+538 344 326 213 3
 [FinGraficoRama]
 FwdBKGTC
 GFwdBKGTC()
@@ -324,7 +311,7 @@ FFwdBKGTC();
 [GraficoRama]
 [Version GraficoRama]
 0
-545 351 325 290 3
+545 351 326 290 3
 [FinGraficoRama]
 FwdDroneTC
 GFwdDroneTC()
@@ -341,10 +328,10 @@ FFwdDroneTC();
 [GraficoRama]
 [Version GraficoRama]
 0
-545 351 325 368 2
+545 351 326 368 2
 [FinGraficoRama]
 [Transiciones]
-7
+4
 [Version Transicion]
 5
 Init
@@ -368,7 +355,7 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-119 119 182 142 0
+119 119 183 142 0
 [FinGraficoTransicion]
 NewRxTC
 Ready
@@ -379,7 +366,7 @@ DPEleccion
 [Trigger]
 RxTC
 EDROOMIRQsignal
-GFlightDone()
+true
  
  
  
@@ -391,7 +378,7 @@ FGetTC();
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-255 419 252 594 2
+256 419 252 594 2
 [FinGraficoTransicion]
 HandleTC
 ValidTC
@@ -437,76 +424,7 @@ FGetEvAction();
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-325 409 495 590 0
-[FinGraficoTransicion]
-Fly
-Ready
-OSubEst
-Flight
-DSubEst
-FInFlightPlan();
-[Trigger]
-RxTC
-EDROOMIRQsignal
-true
- 
- 
- 
-;
-;
-;
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-182 336 123 284 3
-[FinGraficoTransicion]
-Landed
-Flight
-OSubEst
-Ready
-DSubEst
-;
-[Trigger]
-DroneMngCtrl
-SFlightFinished
-GFlightDone()
- 
- 
- 
-;
-;
-;
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-120 224 182 207 1
-[FinGraficoTransicion]
-InFlight
-Flight
-OSubEst
-Flight
-DSubEst
-FInFlightPlan();
-[Trigger]
-RxTC
-EDROOMIRQsignal
-true
- 
- 
- 
-;
-;
-;
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-108 284 68 284 5
+326 409 495 590 0
 [FinGraficoTransicion]
 [VariablesConstantes]
 3
@@ -532,7 +450,7 @@ CDTCExecCtrl
 Variable
 0
 [Metodos]
-19
+18
 [Version Metodos]
 21
 BasicAction
@@ -650,18 +568,6 @@ RxTC
 EDROOMIRQsignal
 CDTCMemDescriptor
 EDROOMprioVeryHigh
-BasicAction
-FInFlightPlan()
-0
-0
-0
-0
-1
- 
-3
-CDTCHandler & varEDROOMIRQsignal = *(CDTCHandler *)Msg->data;
-CDTCAcceptReport acceptReport;
-varEDROOMIRQsignal.MngTCRejectionInFlight(acceptReport);
 BasicAction
 FInit()
 0
@@ -793,7 +699,7 @@ Ready
 Ready
 Top
 [Subestados]
-1
+2
 [Version SubEstados]
 3
 StandBy
@@ -809,12 +715,25 @@ StandBy
 0
 167 262 90 60
 [FinObjetoGrafico]
+SubEstado1
+;
+;
+;
+;
+;
+0
+0
+[ObjetoGrafico]
+[Version Objeto Grafico]
+0
+389 306 90 60
+[FinObjetoGrafico]
 [PuntosEleccion]
 0
 [Version PuntosEleccion]
 2
 [Transiciones]
-1
+5
 [Version Transicion]
 5
 InvokeDroneSetUp
@@ -840,10 +759,102 @@ FInvokeDroneSetUp();
 0
 46 140 167 272 0
 [FinGraficoTransicion]
+Transicion1
+StandBy
+OSubEst
+SubEstado1
+DSubEst
+FInFlightPlan();
+[Trigger]
+RxTC
+EDROOMIRQsignal
+GInFlight()
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+257 285 389 316 0
+[FinGraficoTransicion]
+Transicion2
+SubEstado1
+OSubEst
+SubEstado1
+DSubEst
+FInFlightPlan();
+[Trigger]
+RxTC
+EDROOMIRQsignal
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+479 352 479 316 7
+[FinGraficoTransicion]
+Transicion3
+SubEstado1
+OSubEst
+StandBy
+DSubEst
+;
+[Trigger]
+DroneMngCtrl
+SFlightFinished
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+389 354 257 310 3
+[FinGraficoTransicion]
+Transicion4
+StandBy
+OSubEst
+NewRxTC
+DPSalida
+;
+[Trigger]
+RxTC
+EDROOMIRQsignal
+true
+ 
+ 
+ 
+;
+;
+;
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+215 322 360 698 0
+[FinGraficoTransicion]
 [VariablesConstantes]
 0
 [Metodos]
-1
+3
 [Version Metodos]
 21
 InvokeMsg
@@ -866,6 +877,28 @@ DroneMngCtrl
 SDroneSetUp
 CDDroneConfig
 EDROOMprioVeryHigh
+BasicAction
+FInFlightPlan()
+0
+0
+0
+0
+1
+
+3
+CDTCHandler & varEDROOMIRQsignal = *(CDTCHandler *)Msg->data;
+CDTCAcceptReport acceptReport;
+varEDROOMIRQsignal.MngTCRejectionInFlight(acceptReport);
+Guard
+GInFlight()
+0
+0
+0
+0
+1
+
+1
+return !pus_service129_flight_plan_done();
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]

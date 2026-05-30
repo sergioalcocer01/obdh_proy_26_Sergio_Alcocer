@@ -252,8 +252,7 @@ public:
 		enum TEDROOMStateID{I,
 			Ready,
 			Reboot,
-			ValidTC,
-			Flight};
+			ValidTC};
 
 		//!Transition Identifiers
 		enum TEDROOMTransitionID{Init,
@@ -267,9 +266,6 @@ public:
 			HandleTC_FwdDroneTC,
 			HandleTC_ExecPrioTC,
 			NewEvAction,
-			Fly,
-			Landed,
-			InFlight,
 			EDROOMMemoryTrans };
 
 
@@ -400,6 +396,11 @@ public:
 		/**
 		 * \brief  
 		 */
+		bool	GFlightDone();
+
+		/**
+		 * \brief  
+		 */
 		bool	GFwdBKGTC();
 
 		/**
@@ -417,16 +418,6 @@ public:
 		 */
 		bool	GToReboot();
 
-		/**
-		 * \brief 
-		 */
-		bool	GFlightDone();
-
-		/**
-		 * \brief 
-		 */
-		void	FInFlightPlan();
-
 	};
 
 	// ***********************************************************************
@@ -442,10 +433,15 @@ public:
 	protected:
 
 		//! State Identifiers
-		enum TEDROOMStateID{StandBy};
+		enum TEDROOMStateID{StandBy,
+			SubEstado1};
 
 		//!Transition Identifiers
 		enum TEDROOMTransitionID{InvokeDroneSetUp,
+			Transicion1,
+			Transicion2,
+			Transicion3,
+			Transicion4,
 			EDROOMMemoryTrans };
 
 
@@ -477,6 +473,16 @@ public:
 		 * \brief  
 		 */
 		void	FInvokeDroneSetUp();
+
+		/**
+		 * \brief 
+		 */
+		void	FInFlightPlan();
+
+		/**
+		 * \brief 
+		 */
+		bool	GInFlight();
 
 	};
 
@@ -524,6 +530,16 @@ public:
 
 
 		TEDROOMTransId EDROOMStandByArrival();
+
+		// ***********************************************************************
+
+		// Leaf SubState SubEstado1
+
+		// ***********************************************************************
+
+
+
+		TEDROOMTransId EDROOMSubEstado1Arrival();
 
 	};
 
@@ -594,16 +610,6 @@ public:
 
 
 		TEDROOMTransId EDROOMRebootArrival();
-
-		// ***********************************************************************
-
-		// Leaf SubState Flight
-
-		// ***********************************************************************
-
-
-
-		TEDROOMTransId EDROOMFlightArrival();
 
 	};
 
