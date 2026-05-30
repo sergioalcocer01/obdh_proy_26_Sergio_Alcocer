@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -715,7 +715,7 @@ StandBy
 0
 167 262 90 60
 [FinObjetoGrafico]
-SubEstado1
+InFlight
 ;
 ;
 ;
@@ -759,10 +759,10 @@ FInvokeDroneSetUp();
 0
 46 140 167 272 0
 [FinGraficoTransicion]
-Transicion1
+StartFlight
 StandBy
 OSubEst
-SubEstado1
+InFlight
 DSubEst
 FInFlightPlan();
 [Trigger]
@@ -782,10 +782,10 @@ GInFlight()
 0
 257 285 389 316 0
 [FinGraficoTransicion]
-Transicion2
-SubEstado1
+Flying
+InFlight
 OSubEst
-SubEstado1
+InFlight
 DSubEst
 FInFlightPlan();
 [Trigger]
@@ -805,8 +805,8 @@ true
 0
 479 352 479 316 7
 [FinGraficoTransicion]
-Transicion3
-SubEstado1
+FlightDone
+InFlight
 OSubEst
 StandBy
 DSubEst
@@ -828,7 +828,7 @@ true
 0
 389 354 257 310 3
 [FinGraficoTransicion]
-Transicion4
+NewRxTC
 StandBy
 OSubEst
 NewRxTC
