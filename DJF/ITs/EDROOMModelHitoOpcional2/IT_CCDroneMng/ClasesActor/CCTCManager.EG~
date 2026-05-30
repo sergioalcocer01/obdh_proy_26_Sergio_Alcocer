@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -787,7 +787,7 @@ InFlight
 OSubEst
 InFlight
 DSubEst
-FInFlightPlan();
+;
 [Trigger]
 RxTC
 EDROOMIRQsignal
@@ -795,7 +795,7 @@ true
  
  
  
-;
+FInFlightPlan();
 ;
 ;
 0
@@ -834,18 +834,6 @@ true
 3
 [Version Metodos]
 21
-BasicAction
-FInFlightPlan()
-0
-0
-0
-0
-1
- 
-3
-CDTCHandler & varEDROOMIRQsignal = *(CDTCHandler *)Msg->data;
-CDTCAcceptReport acceptReport;
-varEDROOMIRQsignal.MngTCRejectionInFlight(acceptReport);
 InvokeMsg
 FInvokeDroneSetUp()
 0
@@ -876,6 +864,27 @@ GInFlight()
  
 1
 return !pus_service129_flight_plan_done();
+MsgDataHandler
+FInFlightPlan()
+0
+0
+0
+0
+1
+
+6
+	
+
+VCurrentTC.BuildFromDescriptor(varEDROOMIRQsignal);
+ 
+CDTCAcceptReport acceptReport;
+VCurrentTC.MngTCRejectionInFlight(acceptReport);
+[ServiceRequest]
+Msg->data
+RxTC
+EDROOMIRQsignal
+CDTCMemDescriptor
+
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]
